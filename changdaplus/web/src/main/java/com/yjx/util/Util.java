@@ -21,7 +21,7 @@ public class Util {
 
 	// 获得微信openid
 	public JSONObject getWeChatID(String code) {
-		String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wx764aa986f9845f7b&secret=bde9c7653c1f71aec35ccf42cbee5ffb&js_code="
+		String url = "https://api.weixin.qq.com/sns/jscode2session?appid=&secret=&js_code="
 				+ code + "&grant_type=authorization_code";
 		JSONObject json = loadJson(url);
 		return json;
@@ -29,7 +29,7 @@ public class Util {
 
 	// 获得天气情况
 	public com.alibaba.fastjson.JSONObject getWeather(String cityid) {
-		String url = "https://www.tianqiapi.com/api/?version=v1&cityid=" + cityid;
+		String url = "" + cityid;
 		com.alibaba.fastjson.JSONObject json = com.alibaba.fastjson.JSONObject.parseObject(loadJson(url).toString());
 		com.alibaba.fastjson.JSONArray a = (com.alibaba.fastjson.JSONArray) json.get("data");
 		com.alibaba.fastjson.JSONObject json1 = new com.alibaba.fastjson.JSONObject();
