@@ -89,7 +89,7 @@ public class NewsUtil {
 	
 	//学校新闻 
 	private static JSONObject getMessage() throws IOException {
-		String url = "http://www.yangtzeu.edu.cn/";
+		String url = "http://";
 		Connection con = Jsoup.connect(url); // ��������
 		Response rs = con.execute();
 		Document d1 = Jsoup.parse(rs.body());
@@ -169,7 +169,7 @@ public class NewsUtil {
 
 	//教务通知֪
 	private static JSONArray getJaoWu() throws IOException {
-		String url = "http://jwc.yangtzeu.edu.cn/jwxw/jwtz.htm";
+		String url = "";
 		Connection con = Jsoup.connect(url);
 		con.header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0");
 		Response rs = con.execute();
@@ -183,7 +183,7 @@ public class NewsUtil {
 			if (!d1.select("#list_r").get(0).select("ul").get(0).select("li").get(i).select("a").attr("href")
 					.startsWith("http")) {
 				String s = d1.select("#list_r").get(0).select("ul").get(0).select("li").get(i).select("a").attr("href");
-				temp.put("url", "http://jwc.yangtzeu.edu.cn/" + s.substring(s.indexOf("../") + 3));
+				temp.put("url", "http:" + s.substring(s.indexOf("../") + 3));
 			} else {
 				temp.put("url",
 						d1.select("#list_r").get(0).select("ul").get(0).select("li").get(i).select("a").attr("href"));
