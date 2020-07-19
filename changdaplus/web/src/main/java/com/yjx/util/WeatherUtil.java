@@ -41,7 +41,7 @@ public class WeatherUtil {
 	
 	private static JSONObject getNow(String cityid)
 	{
-		   String url = "https://free-api.heweather.net/s6/weather/now?location=CN"+cityid+"&key=da4bbae30ac74e22b027097d658a8c59";
+		   String url = "https://free-api.heweather.net/s6/weather/now?location=CN"+cityid+"&key=";
 	       JSONObject json=new JSONObject();
 	       JSONObject data=new JSONObject();
 		   JSONObject temp=getJson(url);	//获得数据
@@ -77,7 +77,7 @@ public class WeatherUtil {
 	
 	private static JSONObject getTmp(String cityid)
 	{
-		String url = "https://free-api.heweather.net/s6/weather/forecast?location=CN"+cityid+"&key=da4bbae30ac74e22b027097d658a8c59";
+		String url = "https://free-api.heweather.net/s6/weather/forecast?location=CN"+cityid+"&key=";
 		JSONObject json=new JSONObject();
 		JSONObject temp=getJson(url);	//获得数据
 		JSONArray arrayTemp=temp.getJSONArray("HeWeather6").getJSONObject(0).getJSONArray("daily_forecast");
@@ -88,7 +88,7 @@ public class WeatherUtil {
 	
 	private static JSONObject getLife(String cityid)
 	{
-		String url = "https://free-api.heweather.net/s6/weather/lifestyle?location=CN"+cityid+"&key=da4bbae30ac74e22b027097d658a8c59";
+		String url = "https://free-api.heweather.net/s6/weather/lifestyle?location=CN"+cityid+"&key=";
 		JSONObject json=new JSONObject();
 		JSONObject temp=getJson(url);	//获得数据
 	    json.put("life", temp.getJSONArray("HeWeather6").getJSONObject(0).getJSONArray("lifestyle"));
