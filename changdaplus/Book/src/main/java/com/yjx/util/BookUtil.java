@@ -24,7 +24,7 @@ public class BookUtil {
 	// 按书名查找图书
 	public JSONObject getBook(String bookName, String page) throws Exception {
 		// System.out.println(bookName+":"+page);
-		String Url = "http://calis.yangtzeu.edu.cn:8000/opac/search?&q=" + bookName
+		String Url = "http://opac/search?&q=" + bookName
 				+ "&searchType=standard&isFacet=true&view=standard&searchWay=title&rows=10&sortWay=score&sortOrder=desc&searchWay0=marc&logical0=AND&page="
 				+ page;
 		Connection con = Jsoup.connect(Url);// 获取连接
@@ -72,7 +72,7 @@ public class BookUtil {
 
 	// 获得书的详细信息
 	public JSONObject getBookInfo(String no) throws IOException {
-		String url = "http://calis.yangtzeu.edu.cn:8000/opac/book/" + no;
+		String url = "http://" + no;
 		Connection con = Jsoup.connect(url);// 获取连接
 		con.header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0");// 配置模拟浏览器
 		Response rs = con.execute();// 获取响应
@@ -115,7 +115,7 @@ public class BookUtil {
 	// 获得馆藏信息
 	public JSONArray getCollectionInfo(String no) throws Exception {
 		String s;
-		String url = "http://calis.yangtzeu.edu.cn:8000/opac/api/holding/" + no;
+		String url = "" + no;
 		s = loadJson(url);
 		JSONObject json = new JSONObject().fromObject(s);
 		JSONArray a = new JSONArray();
