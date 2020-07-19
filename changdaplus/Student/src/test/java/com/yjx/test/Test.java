@@ -23,11 +23,11 @@ public class Test {
 	public void test()
 	{
 //		IStuExam stuExam=new StuExamImpl();
-//		System.out.println(stuExam.getStuExam("201740846", "201740846").get("Exam"));
+//		System.out.println(stuExam.getStuExam("", "").get("Exam"));
 //		IStuClass stuClass=new StuClassImpl();
-//		System.out.println(stuClass.getClass("201740846", "201740846", "1"));
+//		System.out.println(stuClass.getClass("", "", "1"));
 //		IStuScore stuScore=new StuScoreImpl();
-//		System.out.println(stuScore.getStuScore("201740846", "201740846"));
+//		System.out.println(stuScore.getStuScore("", ""));
 	}
 
 }
