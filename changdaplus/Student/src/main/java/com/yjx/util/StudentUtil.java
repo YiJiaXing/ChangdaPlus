@@ -46,7 +46,7 @@ public class StudentUtil {
 	//获得cookie
 	private static Response getCookies(String no,String pwd) throws IOException
 	{
-		Connection con = Jsoup.connect("http://221.233.24.23/eams/login.action");	//连接到新教务处官网
+		Connection con = Jsoup.connect("");	//连接到新教务处官网
         con.header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0");
         Response rs = con.execute();	//获得请求对象
 		
@@ -89,7 +89,7 @@ public class StudentUtil {
         }
         
         //发起第二次请求,带有登录表单信息和第一次登陆获得的cookies
-        Connection con2 = Jsoup.connect("http://221.233.24.23/eams/login.action");
+        Connection con2 = Jsoup.connect("");
         con2.header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0");
         Response rs2=con2.cookies(rs.cookies()).data(datas).execute();
         //判断模拟登录是否成功（此判断是根据获得html的body片段长度来进行的）
@@ -118,12 +118,12 @@ public class StudentUtil {
 	// 获得学生信息
 	public JSONObject getStuInfo() throws IOException {
 		// 本科生
-		Document d2 = Jsoup.connect("http://jwc3.yangtzeu.edu.cn/eams/stdDetail.action").cookies(response.cookies())
+		Document d2 = Jsoup.connect("").cookies(response.cookies())
 				.get();
 		JSONObject json = new JSONObject();
 		if (d2.select(".infoTable").size() == 0) {
 			// 研究生
-			d2 = Jsoup.connect("http://jwc3.yangtzeu.edu.cn/eams/stdDetail!innerIndex.action?projectId=3")
+			d2 = Jsoup.connect("")
 					.cookies(response.cookies()).get();
 		}
 		if (d2.select(".infoTable").size() > 0) {
@@ -139,7 +139,7 @@ public class StudentUtil {
 
 	// 获得成绩
 	public JSONObject getScore() throws IOException {
-		Document d1 = Jsoup.connect("http://221.233.24.23/eams/teach/grade/course/person!historyCourseGrade.action?projectType=MAJOR").cookies(response.cookies()).get();
+		Document d1 = Jsoup.connect("").cookies(response.cookies()).get();
 		List<Element> et = d1.select("table");
 		JSONObject json = new JSONObject();
 		JSONObject json1 = new JSONObject();
@@ -240,7 +240,7 @@ public class StudentUtil {
 
 	// 获得考试信息
 	public JSONObject getExam() throws IOException {
-		Document d1 = Jsoup.connect("http://jwc3.yangtzeu.edu.cn/eams/stdExamTable.action").cookies(response.cookies()).get();
+		Document d1 = Jsoup.connect("").cookies(response.cookies()).get();
 		JSONObject json = new JSONObject();
 		JSONArray array = new JSONArray();
 		JSONArray array1 = new JSONArray();
@@ -261,7 +261,7 @@ public class StudentUtil {
 		}
 		
 		//获得考试信息
-		String url = "http://jwc3.yangtzeu.edu.cn/eams/stdExamTable!examTable.action?examBatch.id="
+		String url = ""
 				+ d1.select("#semesterForm").get(0).select("#examBatchId").get(0).select("option").attr("value");
 		try {
 			Document d2 = Jsoup.connect(url).cookies(response.cookies()).get();
@@ -344,7 +344,7 @@ public class StudentUtil {
 
 	// 获得课程信息
 	public JSONArray getClassInfo(Map<String, String> map, String week) throws IOException {
-		Document d1 = Jsoup.connect("http://jwc3.yangtzeu.edu.cn/eams/courseTableForStd.action")
+		Document d1 = Jsoup.connect("")
 				.cookies(response.cookies()).get();
 		
 		JSONObject json = new JSONObject();
@@ -376,7 +376,7 @@ public class StudentUtil {
 			datas.put("ids", map.get(datas.get("setting.kind")));
 
 
-			Document d4 = Jsoup.connect("http://jwc3.yangtzeu.edu.cn/eams/courseTableForStd!courseTable.action")
+			Document d4 = Jsoup.connect("")
 					.cookies(response.cookies()).data(datas).get();
 			
 			String s = d4.select("script").get(d4.select("script").size() - 2).toString();
