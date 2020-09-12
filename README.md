@@ -66,4 +66,4 @@
 
 ## 三、项目页面展示
 
-![图片1](C:\Users\YJX\Desktop\图片1.png)
+![项目展示图](https://images.gitee.com/uploads/images/2020/0912/104838_17d266d7_4878586.png "图片1.png")
