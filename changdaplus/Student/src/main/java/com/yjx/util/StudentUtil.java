@@ -310,7 +310,7 @@ public class StudentUtil {
 	// 获得ids
 	public Map<String, String> getIds() throws IOException {
 		Map<String, String> map = new HashMap<>();
-		Document d1 = Jsoup.connect("http://jwc3.yangtzeu.edu.cn/eams/courseTableForStd.action")
+		Document d1 = Jsoup.connect("")
 				.cookies(response.cookies()).get();
 
 		
