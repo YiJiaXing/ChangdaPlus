@@ -24,7 +24,7 @@ public class BookUtil {
 	// 按书名查找图书
 	public JSONObject getBook(String bookName, String page) throws Exception {
 		// System.out.println(bookName+":"+page);
-		String Url = "http://opac/search?&q=" + bookName
+		String Url = "?&q=" + bookName
 				+ "&searchType=standard&isFacet=true&view=standard&searchWay=title&rows=10&sortWay=score&sortOrder=desc&searchWay0=marc&logical0=AND&page="
 				+ page;
 		Connection con = Jsoup.connect(Url);// 获取连接
